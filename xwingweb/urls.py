@@ -17,7 +17,7 @@ urlpatterns = patterns('',
 	#url(r'^xwing/', include('xwing.index')),
     # Examples:
      #url(r'^$', 'xwingweb.views.home', name='home'),
-     url(r'^xwingweb/$', include('xwingweb.views.index')),
+     url(r'^xwing/$', include('xwing.views.index')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

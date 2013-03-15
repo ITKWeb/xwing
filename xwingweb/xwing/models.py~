@@ -1,0 +1,19 @@
+from django.db import models
+
+# Create your models here.
+
+class Boite(models.Model):
+    nom = models.CharField(maxlength=50)
+
+
+class Carte(models.Model):
+    nom = models.CharField(maxlength=50)
+    points = models.IntegerField()
+    boite = models.ForeignKey(Boite)
+
+class Meta:
+    abstract = True
+
+class Amelioration(Carte):
+    type_amelioration = models.EnumField();
+       

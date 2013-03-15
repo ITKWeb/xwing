@@ -50,6 +50,22 @@
 					<option value="3">3</option>
 				</select>
 			</div>
+			<div class="box">
+			{% for boite in list_boites %}
+				<div class="img_box">
+					<img src="{{ boite.image }}" alt=""/>
+					<br/>
+				</div>
+				<span class="box_title">{{ boite.nom }}</span>
+				<br/>
+				<label for="nbBoite_id" class="box_qte">Quantité</label>
+				<select name="audi_modele" id="nbBoite_id">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+			{% endfor %}
+			</div>
 			<div id="submit">
 				<input type="submit" id="submitBtn" value="Valider">
 			</div>

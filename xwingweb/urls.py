@@ -12,12 +12,12 @@ admin.autodiscover()
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^$', RedirectView.as_view(url='xwing/')),
-	url(r'^admin/', include(admin.site.urls)),
-	url(r'^xwing/', include('xwing.index')),
+	#url(r'^$', RedirectView.as_view(url='xwing/')),
+	#url(r'^admin/', include(admin.site.urls)),
+	#url(r'^xwing/', include('xwing.index')),
     # Examples:
-    # url(r'^$', 'xwingweb.views.home', name='home'),
-    # url(r'^xwingweb/', include('xwingweb.foo.urls')),
+     #url(r'^$', 'xwingweb.views.home', name='home'),
+     url(r'^xwingweb/$', include('xwingweb.views.index')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

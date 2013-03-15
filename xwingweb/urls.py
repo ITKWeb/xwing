@@ -7,9 +7,9 @@ from xwing.views import *
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^$', 'xwingweb.views.home', name='home'),
+	url(r'^$', RedirectView.as_view(url='xwing/')),
 	url(r'^admin/', include(admin.site.urls)),
-	url(r'^todo/', include('todo.urls')),
+	url(r'^xwing/', include('xwing.urls')),
     # Examples:
     # url(r'^$', 'xwingweb.views.home', name='home'),
     # url(r'^xwingweb/', include('xwingweb.foo.urls')),

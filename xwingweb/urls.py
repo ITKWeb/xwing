@@ -9,7 +9,7 @@ from xwing.views import *
 urlpatterns = patterns('',
 	url(r'^$', RedirectView.as_view(url='xwing/')),
 	url(r'^admin/', include(admin.site.urls)),
-	url(r'^xwing/', include('xwing.urls')),
+	url(r'^xwing/', include('xwing.index')),
     # Examples:
     # url(r'^$', 'xwingweb.views.home', name='home'),
     # url(r'^xwingweb/', include('xwingweb.foo.urls')),

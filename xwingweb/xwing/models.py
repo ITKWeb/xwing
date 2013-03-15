@@ -3,12 +3,12 @@ from django.db import models
 # Create your models here.
 
 class Boite(models.Model):
-    nom = models.CharField(maxlength=50)
-    image = models.CharField(maxlength=50)
+    nom = models.CharField(max_length=50)
+    image = models.CharField(max_length=50)
 
 
 class Carte(models.Model):
-    nom = models.CharField(maxlength=50)
+    nom = models.CharField(max_length=50)
     points = models.IntegerField()
     boite = models.ForeignKey(Boite)
 
@@ -24,16 +24,7 @@ class Amelioration(Carte):
         ('MS', 'Missiles'),
     )
     type_amelioration = models.CharField(max_length=2, choices=AMELIORATION_CHOICES)
-
               
-class Pilote(Carte):
-    type_vaisseau = models.ForeignKey(Vaisseau)
-
-class Ameliorations_Pilote(Carte):
-     pilote =  models.ForeignKey(Pilote)
-     nombre = models.IntegerField()
-     type_amelioration = models.ForeignKey(Amelioration)
-
 class Vaisseau(models.Model):
     VAISSEAU_CHOICES = (
         ('XW', 'XWing'),
@@ -42,3 +33,12 @@ class Vaisseau(models.Model):
         ('TA', 'TIE Advance'),
     )
     type_vaisseau = models.CharField(max_length=2, choices=VAISSEAU_CHOICES)
+
+class Pilote(Carte):
+    type_vaisseau = models.ForeignKey(Vaisseau)
+
+class Ameliorations_Pilote(Carte):
+     pilote =  models.ForeignKey(Pilote)
+     nombre = models.IntegerField()
+     type_amelioration = models.ForeignKey(Amelioration)
+

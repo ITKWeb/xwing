@@ -15,6 +15,13 @@ class Carte(models.Model):
 class Meta:
     abstract = True
 
+class Camp(models.Model):
+    Camp_CHOICES = (
+        ('E', 'Empire'),
+        ('R', 'Rebelles'),
+    )
+    camp = models.CharField(max_length=2, choices=Camp_CHOICES)
+
 class Amelioration(Carte):
     AMELIORATION_CHOICES = (
         ('TP', 'Torpille'),
@@ -33,6 +40,7 @@ class Vaisseau(models.Model):
         ('TA', 'TIE Advance'),
     )
     type_vaisseau = models.CharField(max_length=2, choices=VAISSEAU_CHOICES)
+    camp = models.ForeignKey(Camp)
 
 class Pilote(Carte):
     type_vaisseau = models.ForeignKey(Vaisseau)

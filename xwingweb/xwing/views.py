@@ -1,15 +1,7 @@
 # Create your views here.
-from django.http import HttpResponse
-from django.db.models import Boite
+from django.shortcuts import render_to_response
+from xwingweb.xwing.models import Boite
 
-def index(request):
-    return HttpResponse('<h1>Hello world</h1>')
-	
-
-
-urlpatterns = patterns('',
-    url(r'^$', 'person.views.index'),
-    url(r'^profile/$', TemplateView.as_view(template_name='profile.html')),
-)
-
-
+def index_3(request):    
+    list_boites = Boite.objects.all()         
+    return render_to_response('index.html', { 'list_boites': list_boites })
